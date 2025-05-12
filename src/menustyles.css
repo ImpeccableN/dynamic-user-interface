@@ -4,3 +4,22 @@
     cursor: pointer;
 }
 
+#menu {
+    width: 200px;
+    background-color: aliceblue;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+}
+
+.dropdown {
+    width: 200px;
+    background-color: beige;
+}
+
+#content {
+    background-color: azure;
+    /* width: 100%; */
+}
