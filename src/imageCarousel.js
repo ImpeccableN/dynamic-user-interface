@@ -29,7 +29,7 @@ export const initCarousel = function () {
   assignShowNextImgToBtn();
 };
 
-const assignShowPrevImgToBtn = function() {
+const assignShowPrevImgToBtn = function () {
   const prevImgBtn = document.querySelector("#prevImg");
   prevImgBtn.addEventListener("click", () => {
     clearInterval(timeOutVar);
@@ -38,33 +38,33 @@ const assignShowPrevImgToBtn = function() {
   });
 };
 
-const assignShowNextImgToBtn = function() {
+const assignShowNextImgToBtn = function () {
   const prevImgBtn = document.querySelector("#nextImg");
   prevImgBtn.addEventListener("click", () => {
     clearInterval(timeOutVar);
     showNextImg();
     nextImgOnTimeOut();
   });
-}
+};
 
-const showImg = function(imgNum){
+const showImg = function (imgNum) {
   carouselImgArr[currentImg].setAttribute("style", "display: none");
   currentImg = imgNum;
   carouselImgArr[currentImg].setAttribute("style", "display: block");
-}
+};
 
-const showNextImg = function(){
+const showNextImg = function () {
   if (currentImg === carouselImgArr.length - 1) {
-      showImg(0)
-    } else {
-      showImg(currentImg + 1)
-    }
-}
+    showImg(0);
+  } else {
+    showImg(currentImg + 1);
+  }
+};
 
-const showPrevImg = function(){
+const showPrevImg = function () {
   if (currentImg === 0) {
-      showImg(2)
-    } else {
-      showImg(currentImg - 1)
-    }
-}
+    showImg(2);
+  } else {
+    showImg(currentImg - 1);
+  }
+};

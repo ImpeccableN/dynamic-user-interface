@@ -34,3 +34,12 @@ body {
 .flip-horizontally {
     transform: scaleX(-1);
 }
+
+#carouselContainer {
+    flex-direction: column;
+    align-items: center;
+}
+
+.controlDot {
+    margin: 5px;
+}
