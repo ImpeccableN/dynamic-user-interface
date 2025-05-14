@@ -18,18 +18,53 @@ const assignImg = function () {
 };
 
 const nextImgOnTimeOut = function () {
-  timeOutVar = setInterval(() => {
-    carouselImgArr[currentImg].setAttribute("style", "display: none");
-    currentImg++;
-    if (currentImg >= carouselImgArr.length) {
-      currentImg = 0;
-    }
-    carouselImgArr[currentImg].setAttribute("style", "display: block");
-  }, 5000);
+  timeOutVar = setInterval(showNextImg, 5000);
 };
 
 export const initCarousel = function () {
   assignImg();
   carouselImgArr[0].setAttribute("style", "display: block");
   nextImgOnTimeOut();
+  assignShowPrevImgToBtn();
+  assignShowNextImgToBtn();
 };
+
+const assignShowPrevImgToBtn = function() {
+  const prevImgBtn = document.querySelector("#prevImg");
+  prevImgBtn.addEventListener("click", () => {
+    clearInterval(timeOutVar);
+    showPrevImg();
+    nextImgOnTimeOut();
+  });
+};
+
+const assignShowNextImgToBtn = function() {
+  const prevImgBtn = document.querySelector("#nextImg");
+  prevImgBtn.addEventListener("click", () => {
+    clearInterval(timeOutVar);
+    showNextImg();
+    nextImgOnTimeOut();
+  });
+}
+
+const showImg = function(imgNum){
+  carouselImgArr[currentImg].setAttribute("style", "display: none");
+  currentImg = imgNum;
+  carouselImgArr[currentImg].setAttribute("style", "display: block");
+}
+
+const showNextImg = function(){
+  if (currentImg === carouselImgArr.length - 1) {
+      showImg(0)
+    } else {
+      showImg(currentImg + 1)
+    }
+}
+
+const showPrevImg = function(){
+  if (currentImg === 0) {
+      showImg(2)
+    } else {
+      showImg(currentImg - 1)
+    }
+}
