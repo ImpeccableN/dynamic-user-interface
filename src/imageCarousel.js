@@ -8,6 +8,7 @@ const carouselImgArr = Array.from(
 );
 
 let timeOutVar;
+let currentImg = 0;
 
 const assignImg = function () {
   for (let i = 0; i < carouselImgArr.length; i++) {
@@ -17,7 +18,6 @@ const assignImg = function () {
 };
 
 const nextImgOnTimeOut = function () {
-  let currentImg = 0;
   timeOutVar = setInterval(() => {
     carouselImgArr[currentImg].setAttribute("style", "display: none");
     currentImg++;

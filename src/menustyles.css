@@ -1,3 +1,7 @@
+.flex-container {
+    display: flex;
+}
+
 .menuButton {
     height: 20px;
     width: 20px;
@@ -25,4 +29,8 @@ body {
 #content {
     background-color: azure;
     /* width: 100%; */
+}
+
+.flip-horizontally {
+    transform: scaleX(-1);
 }
