@@ -27,6 +27,7 @@ export const initCarousel = function () {
   nextImgOnTimeOut();
   assignShowPrevImgToBtn();
   assignShowNextImgToBtn();
+  assignFunctionToDots();
 };
 
 const assignShowPrevImgToBtn = function () {
@@ -66,5 +67,17 @@ const showPrevImg = function () {
     showImg(2);
   } else {
     showImg(currentImg - 1);
+  }
+};
+
+const assignFunctionToDots = function () {
+  const dotsArr = Array.from(document.getElementsByClassName("controlDot"));
+
+  for (let i = 0; i < dotsArr.length; i++) {
+    dotsArr[i].addEventListener("click", () => {
+      clearInterval(timeOutVar);
+      showImg(i);
+      nextImgOnTimeOut();
+    });
   }
 };
