@@ -1,17 +1,16 @@
-const menuButtons = Array.from(document.getElementsByClassName("menuButton"));
+const menuButtons = Array.from(document.getElementsByClassName("burgerIcon"));
+console.log(menuButtons);
 
-const hideMenu = function (parent) {
-  const menuNodes = Array.from(parent.children);
-  menuNodes.forEach((element) => {
-    element.setAttribute("style", "display: none");
-  });
+const hideMenu = function (sibling) {
+  const menuNodes = sibling.nextElementSibling;
+  console.log(menuNodes);
+  menuNodes.setAttribute("style", "display: none");
 };
 
-const showMenu = function (parent) {
-  const menuNodes = Array.from(parent.children);
-  menuNodes.forEach((element) => {
-    element.setAttribute("style", "display: block");
-  });
+const showMenu = function (sibling) {
+  const menuNodes = sibling.nextElementSibling;
+  console.log(menuNodes);
+  menuNodes.setAttribute("style", "display: block");
 };
 
 const buttonFunction = function (button) {
@@ -31,5 +30,4 @@ const buttonFunction = function (button) {
 export const init = function () {
   menuButtons.forEach(hideMenu);
   menuButtons.forEach(buttonFunction);
-  // buttonFunction();
 };

@@ -1,6 +1,9 @@
 .menuButton {
     height: 20px;
     width: 20px;
+}
+
+.burgerIcon {
     cursor: pointer;
 }
 
