@@ -24,7 +24,7 @@ const buttonFunction = function (button) {
   });
 };
 
-export const init = function () {
+export const initMenu = function () {
   menuButtons.forEach(hideMenu);
   menuButtons.forEach(buttonFunction);
 };

@@ -1,4 +1,6 @@
 import "./menustyles.css";
-import { init } from "./menu.js";
+import { initMenu } from "./menu.js";
+import { initCarousel } from "./imageCarousel.js"
 
-init();
+initMenu();
+initCarousel();
