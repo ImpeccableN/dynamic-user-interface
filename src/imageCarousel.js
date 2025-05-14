@@ -7,6 +7,8 @@ const carouselImgArr = Array.from(
   document.getElementsByClassName("carouselImg"),
 );
 
+let timeOutVar;
+
 const assignImg = function () {
   for (let i = 0; i < carouselImgArr.length; i++) {
     carouselImgArr[i].src = imgArr[i];
@@ -15,20 +17,19 @@ const assignImg = function () {
 };
 
 const nextImgOnTimeOut = function () {
-    let currentImg = 0;
-    setInterval(() => {
-        carouselImgArr[currentImg].setAttribute("style", "display: none");
+  let currentImg = 0;
+  timeOutVar = setInterval(() => {
+    carouselImgArr[currentImg].setAttribute("style", "display: none");
     currentImg++;
-    if (currentImg >= carouselImgArr.length){
-        currentImg = 0;
-    };
+    if (currentImg >= carouselImgArr.length) {
+      currentImg = 0;
+    }
     carouselImgArr[currentImg].setAttribute("style", "display: block");
-    }, 5000);
+  }, 5000);
 };
 
-
-export const initCarousel = function() {
-    assignImg();
-    carouselImgArr[0].setAttribute("style", "display: block");
-    nextImgOnTimeOut();
-}
+export const initCarousel = function () {
+  assignImg();
+  carouselImgArr[0].setAttribute("style", "display: block");
+  nextImgOnTimeOut();
+};
