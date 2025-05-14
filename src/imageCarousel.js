@@ -6,6 +6,7 @@ const imgArr = [img1, img2, img3];
 const carouselImgArr = Array.from(
   document.getElementsByClassName("carouselImg"),
 );
+const dotsArr = Array.from(document.getElementsByClassName("controlDot"));
 
 let timeOutVar;
 let currentImg = 0;
@@ -19,15 +20,6 @@ const assignImg = function () {
 
 const nextImgOnTimeOut = function () {
   timeOutVar = setInterval(showNextImg, 5000);
-};
-
-export const initCarousel = function () {
-  assignImg();
-  carouselImgArr[0].setAttribute("style", "display: block");
-  nextImgOnTimeOut();
-  assignShowPrevImgToBtn();
-  assignShowNextImgToBtn();
-  assignFunctionToDots();
 };
 
 const assignShowPrevImgToBtn = function () {
@@ -50,8 +42,10 @@ const assignShowNextImgToBtn = function () {
 
 const showImg = function (imgNum) {
   carouselImgArr[currentImg].setAttribute("style", "display: none");
+  emptyDot();
   currentImg = imgNum;
   carouselImgArr[currentImg].setAttribute("style", "display: block");
+  fillDot();
 };
 
 const showNextImg = function () {
@@ -71,13 +65,31 @@ const showPrevImg = function () {
 };
 
 const assignFunctionToDots = function () {
-  const dotsArr = Array.from(document.getElementsByClassName("controlDot"));
-
   for (let i = 0; i < dotsArr.length; i++) {
     dotsArr[i].addEventListener("click", () => {
       clearInterval(timeOutVar);
       showImg(i);
       nextImgOnTimeOut();
+      dotsArr[i].classList.toggle;
     });
   }
+};
+
+const fillDot = function () {
+  dotsArr[currentImg].classList.toggle("fa-regular");
+  dotsArr[currentImg].classList.toggle("fa-solid");
+};
+
+const emptyDot = function () {
+  dotsArr[currentImg].classList.toggle("fa-solid");
+  dotsArr[currentImg].classList.toggle("fa-regular");
+};
+
+export const initCarousel = function () {
+  assignImg();
+  showImg(0);
+  nextImgOnTimeOut();
+  assignShowPrevImgToBtn();
+  assignShowNextImgToBtn();
+  assignFunctionToDots();
 };
