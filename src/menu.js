@@ -1,15 +1,12 @@
 const menuButtons = Array.from(document.getElementsByClassName("burgerIcon"));
-console.log(menuButtons);
 
 const hideMenu = function (sibling) {
   const menuNodes = sibling.nextElementSibling;
-  console.log(menuNodes);
   menuNodes.setAttribute("style", "display: none");
 };
 
 const showMenu = function (sibling) {
   const menuNodes = sibling.nextElementSibling;
-  console.log(menuNodes);
   menuNodes.setAttribute("style", "display: block");
 };
 
